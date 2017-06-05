@@ -11,8 +11,8 @@
         "--persist=.minetest"
     ],
     "command": "minetest",
-    "rename-appdata-file": "minetest.appdata.xml",
-    "rename-desktop-file": "minetest.desktop",
+    "rename-appdata-file": "net.minetest.minetest.appdata.xml",
+    "rename-desktop-file": "net.minetest.minetest.desktop",
     "rename-icon": "minetest",
     "copy-icon": true,
     "cleanup": [
