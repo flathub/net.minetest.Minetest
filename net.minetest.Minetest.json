@@ -6,7 +6,7 @@
     "finish-args": [
         "--socket=x11",
         "--socket=pulseaudio",
-        "--device=dri",
+        "--device=all",
         "--share=network",
         "--persist=.minetest"
     ],
