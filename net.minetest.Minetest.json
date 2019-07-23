@@ -8,7 +8,7 @@
         "--socket=pulseaudio",
         "--device=all",
         "--share=network",
-        "--persist=.minetest"
+        "--filesystem=~/.minetest:create"
     ],
     "command": "minetest",
     "rename-appdata-file": "net.minetest.minetest.appdata.xml",
