@@ -1,0 +1,75 @@
+app-id: net.minetest.Minetest
+runtime: org.freedesktop.Platform
+runtime-version: "19.08"
+sdk: org.freedesktop.Sdk
+command: minetest
+rename-appdata-file: net.minetest.minetest.appdata.xml
+rename-desktop-file: net.minetest.minetest.desktop
+rename-icon: minetest
+copy-icon: true
+finish-args:
+  - "--socket=x11"
+  - "--socket=pulseaudio"
+  - "--device=all"
+  - "--share=network"
+  - "--persist=.minetest"
+cleanup:
+  - "/include"
+  - "/lib/pkgconfig"
+  - "/share/aclocal"
+  - "/share/gtk-doc"
+  - "/share/man"
+  - "*.la"
+  - "*.a"
+
+modules:
+  - name: libirrlicht
+    buildsystem: simple
+    build-commands:
+      - make -C source/Irrlicht NDEBUG=1 sharedlib
+      - make -C source/Irrlicht INSTALL_DIR=/app/lib install
+    sources:
+      - type: archive
+        url: http://downloads.sourceforge.net/irrlicht/irrlicht-1.8.4.zip
+        sha256: f42b280bc608e545b820206fe2a999c55f290de5c7509a02bdbeeccc1bf9e433
+
+      - type: patch
+        path: irrlicht-use-system-libs.patch
+
+      - type: patch
+        path: irrlicht-link-against-needed-libs.patch
+
+  - name: libluajit
+    no-autogen: true
+    make-args:
+      - PREFIX=/app
+    make-install-args:
+      - PREFIX=/app
+    cleanup:
+      - "/bin"
+    sources:
+      - type: archive
+        url: http://luajit.org/download/LuaJIT-2.1.0-beta3.tar.gz
+        sha256: 1ad2e34b111c802f9d0cdf019e986909123237a28c746b21295b63c9e785d9c3
+
+  - name: minetest
+    buildsystem: cmake-ninja
+    config-opts:
+      - "-DENABLE_CURSES=0"
+      - "-DENABLE_GETTEXT=1"
+      - "-DIRRLICHT_LIBRARY=/app/lib/libIrrlicht.so"
+      - "-DIRRLICHT_INCLUDE_DIR=/app/include/irrlicht"
+    cleanup:
+      - "/share/minetest/games/minimal"
+    sources:
+      - type: archive
+        url: https://github.com/minetest/minetest/archive/5.2.0.tar.gz
+        sha256: 4996c7c50a6600d0c7140680d4bd995cb9aae910f216b46373953b49d6b13a5d
+
+      - type: archive
+        url: https://github.com/minetest/minetest_game/archive/5.2.0.tar.gz
+        sha256: 0c49fd6e310de1aba2e8cb8ae72efe0e06bb6bc8d7c5efea23bc201b6a80ce94
+
+        dest: games/minetest_game
+      - type: patch
+        path: minetest-i18n.patch
