@@ -23,22 +23,9 @@ cleanup:
   - "*.a"
 
 modules:
-  - name: libirrlicht
-    buildsystem: simple
-    build-commands:
-      - make -C source/Irrlicht NDEBUG=1 sharedlib
-      - make -C source/Irrlicht INSTALL_DIR=/app/lib install
-    sources:
       - type: archive
         url: http://downloads.sourceforge.net/irrlicht/irrlicht-1.8.5.zip
         sha256: effb7beed3985099ce2315a959c639b4973aac8210f61e354475a84105944f3d
-
-      - type: patch
-        path: irrlicht-use-system-libs.patch
-
-      - type: patch
-        path: irrlicht-link-against-needed-libs.patch
-
   - name: libluajit
     no-autogen: true
     make-args:
