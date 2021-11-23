@@ -7,24 +7,6 @@ Signed-off-by: Christoph Egger <debian@christoph-egger.org
 
 --- a/include/IrrCompileConfig.h
 +++ b/include/IrrCompileConfig.h
-@@ -242,6 +242,17 @@
- #undef _IRR_WCHAR_FILESYSTEM
- #endif
- 
-+//! Define _IRR_COMPILE_WITH_ZLIB_ to enable compiling the engine using zlib.
-+/** This enables the engine to read from compressed .zip archives. If you
-+disable this feature, the engine can still read archives, but only uncompressed
-+ones. */
-+#define _IRR_COMPILE_WITH_ZLIB_
-+
-+//! Define _IRR_USE_NON_SYSTEM_ZLIB_ to let irrlicht use the zlib which comes with irrlicht.
-+/** If this is commented out, Irrlicht will try to compile using the zlib installed in the system.
-+	This is only used when _IRR_COMPILE_WITH_ZLIB_ is defined. */
-+#undef _IRR_USE_NON_SYSTEM_ZLIB_
-+
- //! Define _IRR_COMPILE_WITH_JPEGLIB_ to enable compiling the engine using libjpeg.
- /** This enables the engine to read jpeg images. If you comment this out,
- the engine will no longer read .jpeg images. */
 @@ -253,10 +264,7 @@
  //! Define _IRR_USE_NON_SYSTEM_JPEG_LIB_ to let irrlicht use the jpeglib which comes with irrlicht.
  /** If this is commented out, Irrlicht will try to compile using the jpeg lib installed in the system.
