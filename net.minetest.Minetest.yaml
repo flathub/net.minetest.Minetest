@@ -65,8 +65,4 @@ modules:
         sha256: b4bfa0755b88230cf4bdb6af6a0951dd1248f6cdf87fecc340e43ac12c80b0b2
         dest: games/minetest_game
 
-      - type: archive
-        url: https://github.com/minetest/irrlicht/archive/refs/tags/1.9.0mt3.tar.gz
-        sha256: 6188a9a4f4ee785091ce650068d358ebb33bb82170ec53a5d101fe060144ffcc
-        dest: source/lib
  
