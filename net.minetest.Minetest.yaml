@@ -25,9 +25,9 @@ cleanup:
 modules:
   - name: libirrlicht
     buildsystem: cmake
-    # build-commands:
+    build-commands:
       # - make -C source/Irrlicht NDEBUG=1 sharedlib
-      # - make -C source/Irrlicht INSTALL_DIR=/app/lib install
+      - make -C source/Irrlicht INSTALL_DIR=/app/lib install
     sources:
       - type: archive
         url: https://github.com/minetest/irrlicht/archive/refs/tags/1.9.0mt3.tar.gz
