@@ -24,7 +24,7 @@ cleanup:
 
 modules:
   - name: libirrlicht
-    buildsystem: simple
+    buildsystem: cmake
     build-commands:
       - make -C source/Irrlicht NDEBUG=1 sharedlib
       - make -C source/Irrlicht INSTALL_DIR=/app/lib install
