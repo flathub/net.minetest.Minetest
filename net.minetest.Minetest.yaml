@@ -56,8 +56,8 @@ modules:
     config-opts:
       - "-DENABLE_CURSES=0"
       - "-DENABLE_GETTEXT=1"
-      - "-DIRRLICHT_LIBRARY=/app/lib/libIrrlicht.so"
-      - "-DIRRLICHT_INCLUDE_DIR=/app/include/irrlicht"
+      - "-DIRRLICHT_LIBRARY=/app/lib/libIrrlichtMt.so"
+      - "-DIRRLICHT_INCLUDE_DIR=/app/include/irrlichtmt"
     cleanup:
       - "/share/minetest/games/minimal"
     sources:
