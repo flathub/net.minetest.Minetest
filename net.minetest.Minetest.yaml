@@ -29,8 +29,8 @@ modules:
       - make -C source/Irrlicht INSTALL_DIR=/app/lib install
     sources:
       - type: archive
-        url: http://downloads.sourceforge.net/irrlicht/irrlicht-1.8.4.zip
-        sha256: f42b280bc608e545b820206fe2a999c55f290de5c7509a02bdbeeccc1bf9e433
+        url: https://github.com/minetest/irrlicht/archive/1.9.0mt3.tar.gz
+        sha256: 6188a9a4f4ee785091ce650068d358ebb33bb82170ec53a5d101fe060144ffcc
 
       - type: patch
         path: irrlicht-use-system-libs.patch
