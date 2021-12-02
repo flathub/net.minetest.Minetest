@@ -24,7 +24,7 @@ cleanup:
 
 modules:
   - name: libirrlicht
-    buildsystem: cmake
+    buildsystem: cmake-ninja
     build-opts:
       - -C source/Irrlicht
       - INSTALL_DIR=/app/lib
