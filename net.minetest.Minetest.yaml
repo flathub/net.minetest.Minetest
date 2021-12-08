@@ -1,6 +1,7 @@
 app-id: net.minetest.Minetest
 runtime: org.freedesktop.Platform
 runtime-version: "21.08"
+default-branch: stable
 sdk: org.freedesktop.Sdk
 command: minetest
 rename-appdata-file: net.minetest.minetest.appdata.xml
