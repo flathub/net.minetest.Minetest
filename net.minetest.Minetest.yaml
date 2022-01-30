@@ -57,8 +57,8 @@ modules:
       - "/share/minetest/games/minimal"
     sources:
       - type: archive
-        url: https://github.com/minetest/minetest/archive/5.4.1.tar.gz
-        sha256: de9e4410583c845c104b4be25f9d0b8743d8573c120149b8910ae2519f9ab14e
+        url: https://github.com/minetest/minetest/archive/5.5.0.tar.gz
+        sha256: 8b9bef6054c8895cc3329ae6d05cb355eef9c7830600d82dc9eaa4664f87c8f9
 
       - type: archive
         url: https://github.com/minetest/minetest_game/archive/5.4.1.tar.gz
