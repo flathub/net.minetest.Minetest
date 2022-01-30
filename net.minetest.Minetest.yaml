@@ -30,8 +30,8 @@ modules:
       - INSTALL_DIR=/app/lib
     sources:
       - type: archive
-        url: https://github.com/minetest/irrlicht/archive/1.9.0mt3.tar.gz
-        sha256: 6188a9a4f4ee785091ce650068d358ebb33bb82170ec53a5d101fe060144ffcc
+        url: https://github.com/minetest/irrlicht/archive/1.9.0mt4.tar.gz
+        sha256: a0e2e5239ebca804adf54400ccaacaf228ec09223cfb2e1daddc9bf2694176e6
 
   - name: libluajit
     no-autogen: true
