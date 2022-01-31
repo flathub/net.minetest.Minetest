@@ -1,6 +1,6 @@
 app-id: net.minetest.Minetest
 runtime: org.freedesktop.Platform
-runtime-version: "20.08"
+runtime-version: "21.08"
 sdk: org.freedesktop.Sdk
 command: minetest
 rename-appdata-file: net.minetest.minetest.appdata.xml
@@ -24,20 +24,14 @@ cleanup:
 
 modules:
   - name: libirrlicht
-    buildsystem: simple
-    build-commands:
-      - make -C source/Irrlicht NDEBUG=1 sharedlib
-      - make -C source/Irrlicht INSTALL_DIR=/app/lib install
+    buildsystem: cmake-ninja
+    build-opts:
+      - -C source/Irrlicht
+      - INSTALL_DIR=/app/lib
     sources:
       - type: archive
-        url: http://downloads.sourceforge.net/irrlicht/irrlicht-1.8.4.zip
-        sha256: f42b280bc608e545b820206fe2a999c55f290de5c7509a02bdbeeccc1bf9e433
-
-      - type: patch
-        path: irrlicht-use-system-libs.patch
-
-      - type: patch
-        path: irrlicht-link-against-needed-libs.patch
+        url: https://github.com/minetest/irrlicht/archive/1.9.0mt4.tar.gz
+        sha256: a0e2e5239ebca804adf54400ccaacaf228ec09223cfb2e1daddc9bf2694176e6
 
   - name: libluajit
     no-autogen: true
@@ -57,16 +51,21 @@ modules:
     config-opts:
       - "-DENABLE_CURSES=0"
       - "-DENABLE_GETTEXT=1"
-      - "-DIRRLICHT_LIBRARY=/app/lib/libIrrlicht.so"
-      - "-DIRRLICHT_INCLUDE_DIR=/app/include/irrlicht"
+      - "-DIRRLICHT_LIBRARY=/app/lib/libIrrlichtMt.so"
+      - "-DIRRLICHT_INCLUDE_DIR=/app/include/irrlichtmt"
     cleanup:
       - "/share/minetest/games/minimal"
     sources:
       - type: archive
-        url: https://github.com/minetest/minetest/archive/5.4.1.tar.gz
-        sha256: de9e4410583c845c104b4be25f9d0b8743d8573c120149b8910ae2519f9ab14e
+        url: https://github.com/minetest/minetest/archive/5.5.0.tar.gz
+        sha256: 8b9bef6054c8895cc3329ae6d05cb355eef9c7830600d82dc9eaa4664f87c8f9
 
       - type: archive
-        url: https://github.com/minetest/minetest_game/archive/5.4.1.tar.gz
-        sha256: b4bfa0755b88230cf4bdb6af6a0951dd1248f6cdf87fecc340e43ac12c80b0b2
+        url: https://github.com/minetest/minetest_game/archive/5.5.0.tar.gz
+        sha256: 1e87252e26d6b1d3efe7720e3e097d489339dea4dd25980a828d5da212b01aaa
         dest: games/minetest_game
+
+      - type: archive
+        url: https://github.com/minetest/irrlicht/archive/1.9.0mt4.tar.gz
+        sha256: a0e2e5239ebca804adf54400ccaacaf228ec09223cfb2e1daddc9bf2694176e6
+        dest: lib/irrlichtmt
