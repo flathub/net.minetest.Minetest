@@ -30,8 +30,8 @@ modules:
       - INSTALL_DIR=/app/lib
     sources:
       - type: archive
-        url: https://github.com/minetest/irrlicht/archive/1.9.0mt4.tar.gz
-        sha256: a0e2e5239ebca804adf54400ccaacaf228ec09223cfb2e1daddc9bf2694176e6
+        url: https://github.com/minetest/irrlicht/archive/1.9.0mt5.tar.gz
+        sha256: 6d38dd7f3e3c8d768e1f5776b98dd5359b184c2e6740ddf733f4dc8615191bef
 
   - name: libluajit
     no-autogen: true
@@ -66,6 +66,6 @@ modules:
         dest: games/minetest_game
 
       - type: archive
-        url: https://github.com/minetest/irrlicht/archive/1.9.0mt4.tar.gz
-        sha256: a0e2e5239ebca804adf54400ccaacaf228ec09223cfb2e1daddc9bf2694176e6
+        url: https://github.com/minetest/irrlicht/archive/1.9.0mt5.tar.gz
+        sha256: 6d38dd7f3e3c8d768e1f5776b98dd5359b184c2e6740ddf733f4dc8615191bef
         dest: lib/irrlichtmt
