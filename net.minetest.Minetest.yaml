@@ -56,6 +56,6 @@ modules:
         dest: games/minetest_game
 
       - type: archive
-        url: https://github.com/minetest/irrlicht/archive/1.9.0mt5.tar.gz
-        sha256: 6d38dd7f3e3c8d768e1f5776b98dd5359b184c2e6740ddf733f4dc8615191bef
+        url: https://github.com/minetest/irrlicht/archive/1.9.0mt7.tar.gz
+        sha256: c12cdbd4a852e1e6ebf7ba22789aa057a1a7f2d585dd81a2412a62f57a0e2619
         dest: lib/irrlichtmt
