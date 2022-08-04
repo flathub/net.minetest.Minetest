@@ -51,8 +51,8 @@ modules:
         sha256: dc0ae5188ef351db85c38b27f38f8549b133ed82aa46daea6deee148aa3454f4
 
       - type: archive
-        url: https://github.com/minetest/minetest_game/archive/5.5.1.tar.gz
-        sha256: 5a24fec4ed838744906f020096c35616e7ba76eeec2b93b980a40af011107e7c
+        url: https://github.com/minetest/minetest_game/archive/5.6.0.tar.gz
+        sha256: fd991d42c253db380559c593a2b035f22e07a81f867b5380a2f045e9a4d04c87
         dest: games/minetest_game
 
       - type: archive
