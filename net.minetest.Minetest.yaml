@@ -48,7 +48,7 @@ modules:
     sources:
       - type: archive
         url: https://github.com/minetest/minetest/archive/5.6.0.tar.gz
-        sha256: 4b715c223763830750997ae8040707d0bda954876c211b4ba558683cdc3fb9d9
+        sha256: 3fdbc0c8d9f6a18c12954ba0caedb548a22f367520f59d079804a21de0347a91
 
       - type: archive
         url: https://github.com/minetest/minetest_game/archive/5.6.0.tar.gz
