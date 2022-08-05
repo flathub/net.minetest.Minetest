@@ -61,4 +61,4 @@ modules:
         dest: lib/irrlichtmt
         
       - type: patch
-        file: fix-appstream-remove-resolution.patch
+        path: fix-appstream-remove-resolution.patch
