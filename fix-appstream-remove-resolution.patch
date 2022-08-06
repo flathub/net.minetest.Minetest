@@ -1,0 +1,30 @@
+From 0dfea9ca5e4b7a4ea50e988c9f4f9ad9a8f81acc Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?F=C3=A1bio=20Rodrigues=20Ribeiro?= <farribeiro@gmail.com>
+Date: Fri, 5 Aug 2022 07:29:24 -0300
+Subject: [PATCH] Remove resolution
+
+---
+ misc/net.minetest.minetest.appdata.xml | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/misc/net.minetest.minetest.appdata.xml b/misc/net.minetest.minetest.appdata.xml
+index 339f3d006531..9524182ccbcb 100644
+--- a/misc/net.minetest.minetest.appdata.xml
++++ b/misc/net.minetest.minetest.appdata.xml
+@@ -53,13 +53,13 @@
+ 	</description>
+ 	<screenshots>
+ 		<screenshot type="default">
+-			<image width="1920" height="1080">http://www.minetest.net/media/gallery/1.jpg</image>
++			<image>http://www.minetest.net/media/gallery/1.jpg</image>
+ 		</screenshot>
+ 		<screenshot>
+-			<image width="1920" height="1080">http://www.minetest.net/media/gallery/3.jpg</image>
++			<image>http://www.minetest.net/media/gallery/3.jpg</image>
+ 		</screenshot>
+ 		<screenshot>
+-			<image width="1920" height="1080">http://www.minetest.net/media/gallery/5.jpg</image>
++			<image>http://www.minetest.net/media/gallery/5.jpg</image>
+ 		</screenshot>
+ 	</screenshots>
+ 	<keywords>
