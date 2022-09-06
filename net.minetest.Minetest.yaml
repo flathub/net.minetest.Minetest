@@ -34,6 +34,7 @@ modules:
     sources:
       - type: git
         url: https://github.com/LuaJIT/LuaJIT.git
+        commit: 03080b795aa3496ed62d4a0697c9f4767e7ca7e5
 
   - name: minetest
     buildsystem: cmake-ninja
