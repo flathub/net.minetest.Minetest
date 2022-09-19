@@ -58,5 +58,3 @@ modules:
         sha256: 27594242da8c7cc1e5ef45922e1dfdd130c37d77719b5d927359eb47992051e0
         dest: lib/irrlichtmt
         
-      - type: patch
-        path: fix-appstream-remove-resolution.patch
