@@ -2,7 +2,7 @@ app-id: net.minetest.Minetest
 runtime: org.freedesktop.Platform
 runtime-version: "22.08"
 sdk: org.freedesktop.Sdk
-command: minetest
+command: run.sh
 rename-appdata-file: net.minetest.minetest.appdata.xml
 rename-desktop-file: net.minetest.minetest.desktop
 rename-icon: minetest
@@ -12,7 +12,6 @@ finish-args:
   - "--socket=pulseaudio"
   - "--device=all"
   - "--share=network"
-  - "--persist=.minetest"
 cleanup:
   - "/include"
   - "/lib/pkgconfig"
@@ -42,19 +41,29 @@ modules:
       - "-DENABLE_CURSES=0"
       - "-DENABLE_GETTEXT=1"
     cleanup:
-      - "/share/minetest/games/minimal"
+      - "/share/minetest/games/devtest"
+    post-install:
+      - install -Dm755 run.sh $FLATPAK_DEST/bin/run.sh
     sources:
       - type: archive
         url: https://github.com/minetest/minetest/archive/5.6.1.tar.gz
-        sha256: 1440603e19dca70e2691e86a74c822ee2c4a36fceee32b2d85ae74772149e9a3
+        sha256: 28894e11a550f52841bf7dacca3cef52c30a79516ce018ffe084fdb730335b3d
 
       - type: archive
         url: https://github.com/minetest/minetest_game/archive/5.6.1.tar.gz
-        sha256: 5dc857003d24bb489f126865fcd6bf0d9c0cb146ca4c1c733570699d15abd0e3
+        sha256: 3e1e2a5e0d28e9958d9881067476d968876343c11b1e89ca6cc6bb88a257a70a
         dest: games/minetest_game
 
       - type: archive
         url: https://github.com/minetest/irrlicht/archive/1.9.0mt8.tar.gz
-        sha256: 27594242da8c7cc1e5ef45922e1dfdd130c37d77719b5d927359eb47992051e0
+        sha256: 77702b997d8b18f75e3f636fa53996ddd5a94c57733ee236d51deccf2d06f3cf
         dest: lib/irrlichtmt
-        
+
+      # This can be removed in 5.7.0+
+      - type: patch
+        path: 0001-MINETEST_USER_PATH.patch
+
+      - type: script
+        dest-filename: run.sh
+        commands:
+          - 'MINETEST_USER_PATH=~/.var/app/net.minetest.Minetest/.minetest exec minetest "$@"'
