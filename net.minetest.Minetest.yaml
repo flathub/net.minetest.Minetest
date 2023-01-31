@@ -2,7 +2,7 @@ app-id: net.minetest.Minetest
 runtime: org.freedesktop.Platform
 runtime-version: "22.08"
 sdk: org.freedesktop.Sdk
-command: minetest
+command: run.sh
 rename-appdata-file: net.minetest.minetest.appdata.xml
 rename-desktop-file: net.minetest.minetest.desktop
 rename-icon: minetest
@@ -12,7 +12,6 @@ finish-args:
   - "--socket=pulseaudio"
   - "--device=all"
   - "--share=network"
-  - "--persist=.minetest"
 cleanup:
   - "/include"
   - "/lib/pkgconfig"
@@ -42,21 +41,29 @@ modules:
       - "-DENABLE_CURSES=0"
       - "-DENABLE_GETTEXT=1"
     cleanup:
-      - "/share/minetest/games/minimal"
+      - "/share/minetest/games/devtest"
+    post-install:
+      - install -Dm755 run.sh $FLATPAK_DEST/bin/run.sh
     sources:
       - type: archive
-        url: https://github.com/minetest/minetest/archive/5.6.0.tar.gz
-        sha256: 3fdbc0c8d9f6a18c12954ba0caedb548a22f367520f59d079804a21de0347a91
+        url: https://github.com/minetest/minetest/archive/5.6.1.tar.gz
+        sha256: 28894e11a550f52841bf7dacca3cef52c30a79516ce018ffe084fdb730335b3d
 
       - type: archive
-        url: https://github.com/minetest/minetest_game/archive/5.6.0.tar.gz
-        sha256: fd991d42c253db380559c593a2b035f22e07a81f867b5380a2f045e9a4d04c87
+        url: https://github.com/minetest/minetest_game/archive/5.6.1.tar.gz
+        sha256: 3e1e2a5e0d28e9958d9881067476d968876343c11b1e89ca6cc6bb88a257a70a
         dest: games/minetest_game
 
       - type: archive
-        url: https://github.com/minetest/irrlicht/archive/1.9.0mt7.tar.gz
-        sha256: c12cdbd4a852e1e6ebf7ba22789aa057a1a7f2d585dd81a2412a62f57a0e2619
+        url: https://github.com/minetest/irrlicht/archive/1.9.0mt8.tar.gz
+        sha256: 77702b997d8b18f75e3f636fa53996ddd5a94c57733ee236d51deccf2d06f3cf
         dest: lib/irrlichtmt
-        
+
+      # This can be removed in 5.7.0+
       - type: patch
-        path: fix-appstream-remove-resolution.patch
+        path: 0001-MINETEST_USER_PATH.patch
+
+      - type: script
+        dest-filename: run.sh
+        commands:
+          - 'MINETEST_USER_PATH=~/.var/app/net.minetest.Minetest/.minetest exec minetest "$@"'
