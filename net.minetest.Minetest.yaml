@@ -2,7 +2,7 @@ app-id: net.minetest.Minetest
 runtime: org.freedesktop.Platform
 runtime-version: "22.08"
 sdk: org.freedesktop.Sdk
-command: run.sh
+command: minetest
 rename-appdata-file: net.minetest.minetest.appdata.xml
 rename-desktop-file: net.minetest.minetest.desktop
 rename-icon: minetest
@@ -43,7 +43,8 @@ modules:
     cleanup:
       - "/share/minetest/games/devtest"
     post-install:
-      - install -Dm755 run.sh $FLATPAK_DEST/bin/run.sh
+      - mv $FLATPAK_DEST/bin/minetest $FLATPAK_DEST/bin/minetest.bin
+      - install -Dm755 minetest.sh $FLATPAK_DEST/bin/minetest
     sources:
       - type: archive
         url: https://github.com/minetest/minetest/archive/5.6.1.tar.gz
@@ -59,14 +60,11 @@ modules:
         sha256: 27594242da8c7cc1e5ef45922e1dfdd130c37d77719b5d927359eb47992051e0
         dest: lib/irrlichtmt
 
-      - type: patch
-        path: 0001-DESKTOP_WRAPPER.patch
-
       # This should be removed in 5.7.0+
       - type: patch
-        path: 0002-MINETEST_USER_PATH.patch
+        path: 0001-MINETEST_USER_PATH.patch
 
       - type: script
-        dest-filename: run.sh
+        dest-filename: minetest.sh
         commands:
-          - 'MINETEST_USER_PATH=~/.var/app/net.minetest.Minetest/.minetest exec minetest "$@"'
+          - 'MINETEST_USER_PATH=~/.var/app/net.minetest.Minetest/.minetest exec minetest.bin "$@"'
