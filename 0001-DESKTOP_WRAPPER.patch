@@ -1,0 +1,13 @@
+diff --git a/misc/net.minetest.minetest.desktop b/misc/net.minetest.minetest.desktop
+index a94dbab1b..7d92e1637 100644
+--- a/misc/net.minetest.minetest.desktop
++++ b/misc/net.minetest.minetest.desktop
+@@ -8,7 +8,7 @@ Comment[fr]=Jeu multijoueurs de type bac à sable avec des mondes infinis
+ Comment[ja]=マルチプレイに対応した、無限の世界のブロック型サンドボックスゲームです
+ Comment[ru]=Игра-песочница с безграничным миром, состоящим из блоков
+ Comment[tr]=Tek-Çok oyuncuyla küplerden sonsuz dünyalar inşa et
+-Exec=minetest
++Exec=run-minetest.sh
+ Icon=minetest
+ Terminal=false
+ PrefersNonDefaultGPU=true
