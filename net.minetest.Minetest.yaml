@@ -60,10 +60,6 @@ modules:
         sha256: 27594242da8c7cc1e5ef45922e1dfdd130c37d77719b5d927359eb47992051e0
         dest: lib/irrlichtmt
 
-      # This should be removed in 5.7.0+
-      - type: patch
-        path: 0001-MINETEST_USER_PATH.patch
-
       - type: script
         dest-filename: minetest.sh
         commands:
