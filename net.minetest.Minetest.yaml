@@ -47,22 +47,18 @@ modules:
       - install -Dm755 minetest.sh $FLATPAK_DEST/bin/minetest
     sources:
       - type: archive
-        url: https://github.com/minetest/minetest/archive/5.6.1.tar.gz
-        sha256: 1440603e19dca70e2691e86a74c822ee2c4a36fceee32b2d85ae74772149e9a3
+        url: https://github.com/minetest/minetest/archive/5.7.0.tar.gz
+        sha256: 0cd0fd48a97f76e337a2e1284599a054f8f92906a84a4ef2122ed321e1b75fa7
 
       - type: archive
-        url: https://github.com/minetest/minetest_game/archive/5.6.1.tar.gz
-        sha256: 5dc857003d24bb489f126865fcd6bf0d9c0cb146ca4c1c733570699d15abd0e3
+        url: https://github.com/minetest/minetest_game/archive/5.7.0.tar.gz
+        sha256: 0787b24cf7b340a8a2be873ca3744cec60c2683011f1d658350a031d1bd5976d
         dest: games/minetest_game
 
       - type: archive
-        url: https://github.com/minetest/irrlicht/archive/1.9.0mt8.tar.gz
-        sha256: 27594242da8c7cc1e5ef45922e1dfdd130c37d77719b5d927359eb47992051e0
+        url: https://github.com/minetest/irrlicht/archive/1.9.0mt10.tar.gz
+        sha256: 6d00348d8ff513f6a7cee5c930908ef67428ff637e6a9e4d5688409bdb6d547d
         dest: lib/irrlichtmt
-
-      # This should be removed in 5.7.0+
-      - type: patch
-        path: 0001-MINETEST_USER_PATH.patch
 
       - type: script
         dest-filename: minetest.sh
