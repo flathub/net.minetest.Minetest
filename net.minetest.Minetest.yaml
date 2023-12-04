@@ -51,11 +51,6 @@ modules:
         sha256: 610c85a24d77acdc3043a69d777bed9e6c00169406ca09df22ad490fe0d68c0c
 
       - type: archive
-        url: https://github.com/minetest/minetest_game/archive/5.7.0.tar.gz
-        sha256: 0787b24cf7b340a8a2be873ca3744cec60c2683011f1d658350a031d1bd5976d
-        dest: games/minetest_game
-
-      - type: archive
         url: https://github.com/minetest/irrlicht/archive/1.9.0mt10.tar.gz
         sha256: 6d00348d8ff513f6a7cee5c930908ef67428ff637e6a9e4d5688409bdb6d547d
         dest: lib/irrlichtmt
