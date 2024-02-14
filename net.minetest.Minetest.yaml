@@ -22,6 +22,8 @@ cleanup:
   - "*.a"
 
 modules:
+  - shared-modules/SDL2/SDL2-with-libdecor.json
+
   - name: libluajit
     no-autogen: true
     make-args:
