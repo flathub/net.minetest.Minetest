@@ -23,19 +23,7 @@ cleanup:
 
 modules:
   - shared-modules/SDL2/SDL2-with-libdecor.json
-
-  - name: libluajit
-    no-autogen: true
-    make-args:
-      - PREFIX=/app
-    make-install-args:
-      - PREFIX=/app
-    cleanup:
-      - "/bin"
-    sources:
-      - type: git
-        url: https://github.com/LuaJIT/LuaJIT.git
-        commit: dad04f1754723e76ba9dcf9f401f3134a0cd3972
+  - shared-modules/luajit/luajit.json
 
   - name: minetest
     buildsystem: cmake-ninja
