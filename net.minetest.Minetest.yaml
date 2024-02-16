@@ -8,7 +8,8 @@ rename-desktop-file: net.minetest.minetest.desktop
 rename-icon: minetest
 copy-icon: true
 finish-args:
-  - "--socket=x11"
+  - "--socket=fallback-x11"
+  - "--socket=wayland"
   - "--socket=pulseaudio"
   - "--device=all"
   - "--share=network"
@@ -30,6 +31,8 @@ modules:
     config-opts:
       - "-DENABLE_CURSES=0"
       - "-DENABLE_GETTEXT=1"
+      - "ENABLE_OPENGL3"
+      - "USE_SDL2"
     cleanup:
       - "/share/minetest/games/devtest"
     post-install:
