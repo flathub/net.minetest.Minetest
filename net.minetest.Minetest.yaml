@@ -46,10 +46,9 @@ modules:
       - mv $FLATPAK_DEST/bin/minetest $FLATPAK_DEST/bin/minetest.bin
       - install -Dm755 minetest.sh $FLATPAK_DEST/bin/minetest
     sources:
-      - type: archive
-        url: https://github.com/minetest/minetest/archive/5.8.0.tar.gz
-        sha256: 610c85a24d77acdc3043a69d777bed9e6c00169406ca09df22ad490fe0d68c0c
-
+      - type: git
+        url: https://github.com/minetest/minetest.git
+        tag: 5.9.0
 
       - type: script
         dest-filename: minetest.sh
