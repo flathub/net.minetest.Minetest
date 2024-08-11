@@ -3,7 +3,7 @@ runtime: org.freedesktop.Platform
 runtime-version: "23.08"
 sdk: org.freedesktop.Sdk
 command: minetest
-rename-appdata-file: net.minetest.minetest.appdata.xml
+rename-appdata-file: net.minetest.minetest.metainfo.xml
 rename-desktop-file: net.minetest.minetest.desktop
 rename-icon: minetest
 copy-icon: true
@@ -11,6 +11,7 @@ finish-args:
   - "--socket=x11"
   - "--socket=pulseaudio"
   - "--device=all"
+  - "--share=ipc"
   - "--share=network"
 cleanup:
   - "/include"
@@ -22,18 +23,7 @@ cleanup:
   - "*.a"
 
 modules:
-  - name: libluajit
-    no-autogen: true
-    make-args:
-      - PREFIX=/app
-    make-install-args:
-      - PREFIX=/app
-    cleanup:
-      - "/bin"
-    sources:
-      - type: git
-        url: https://github.com/LuaJIT/LuaJIT.git
-        commit: dad04f1754723e76ba9dcf9f401f3134a0cd3972
+  - shared-modules/luajit/luajit.json
 
   - name: minetest
     buildsystem: cmake-ninja
@@ -46,14 +36,9 @@ modules:
       - mv $FLATPAK_DEST/bin/minetest $FLATPAK_DEST/bin/minetest.bin
       - install -Dm755 minetest.sh $FLATPAK_DEST/bin/minetest
     sources:
-      - type: archive
-        url: https://github.com/minetest/minetest/archive/5.8.0.tar.gz
-        sha256: 610c85a24d77acdc3043a69d777bed9e6c00169406ca09df22ad490fe0d68c0c
-
-      - type: archive
-        url: https://github.com/minetest/irrlicht/archive/1.9.0mt13.tar.gz
-        sha256: 2fde8e27144988210b9c0ff1e202905834d9d25aaa63ce452763fd7171096adc
-        dest: lib/irrlichtmt
+      - type: git
+        url: https://github.com/minetest/minetest.git
+        tag: 5.9.0
 
       - type: script
         dest-filename: minetest.sh
