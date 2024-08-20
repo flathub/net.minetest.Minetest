@@ -39,6 +39,10 @@ modules:
       - type: git
         url: https://github.com/minetest/minetest.git
         tag: 5.9.0
+        x-checker-data:
+          type: git
+          tag-pattern: ([\d.]+)$
+          is-important: true
 
       - type: script
         dest-filename: minetest.sh
