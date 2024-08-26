@@ -1,6 +1,6 @@
 app-id: net.minetest.Minetest
 runtime: org.freedesktop.Platform
-runtime-version: "23.08"
+runtime-version: '23.08'
 sdk: org.freedesktop.Sdk
 command: minetest
 rename-appdata-file: net.minetest.minetest.metainfo.xml
@@ -8,19 +8,19 @@ rename-desktop-file: net.minetest.minetest.desktop
 rename-icon: minetest
 copy-icon: true
 finish-args:
-  - "--socket=x11"
-  - "--socket=pulseaudio"
-  - "--device=all"
-  - "--share=ipc"
-  - "--share=network"
+  - --socket=x11
+  - --socket=pulseaudio
+  - --device=all
+  - --share=ipc
+  - --share=network
 cleanup:
-  - "/include"
-  - "/lib/pkgconfig"
-  - "/share/aclocal"
-  - "/share/gtk-doc"
-  - "/share/man"
-  - "*.la"
-  - "*.a"
+  - /include
+  - /lib/pkgconfig
+  - /share/aclocal
+  - /share/gtk-doc
+  - /share/man
+  - '*.la'
+  - '*.a'
 
 modules:
   - shared-modules/luajit/luajit.json
@@ -28,10 +28,10 @@ modules:
   - name: minetest
     buildsystem: cmake-ninja
     config-opts:
-      - "-DENABLE_CURSES=0"
-      - "-DENABLE_GETTEXT=1"
+      - -DENABLE_CURSES=0
+      - -DENABLE_GETTEXT=1
     cleanup:
-      - "/share/minetest/games/devtest"
+      - /share/minetest/games/devtest
     post-install:
       - mv $FLATPAK_DEST/bin/minetest $FLATPAK_DEST/bin/minetest.bin
       - install -Dm755 minetest.sh $FLATPAK_DEST/bin/minetest
@@ -44,7 +44,9 @@ modules:
           tag-pattern: ([\d.]+)$
           is-important: true
 
+        commit: 835dd01fa163df815215b8c694af0910657602b6
       - type: script
         dest-filename: minetest.sh
         commands:
-          - 'MINETEST_USER_PATH=$HOME/.var/app/net.minetest.Minetest/.minetest exec minetest.bin "$@"'
+          - MINETEST_USER_PATH=$HOME/.var/app/net.minetest.Minetest/.minetest exec
+            minetest.bin "$@"
