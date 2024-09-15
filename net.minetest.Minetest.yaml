@@ -38,13 +38,13 @@ modules:
     sources:
       - type: git
         url: https://github.com/minetest/minetest.git
-        tag: 5.9.0
+        tag: 5.9.1
         x-checker-data:
           type: git
           tag-pattern: ([\d.]+)$
           is-important: true
 
-        commit: 835dd01fa163df815215b8c694af0910657602b6
+        commit: 71d9f1771c356c377f556748b05d77deb2c6ca86
       - type: script
         dest-filename: minetest.sh
         commands:
