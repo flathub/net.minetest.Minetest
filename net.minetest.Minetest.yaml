@@ -5,7 +5,7 @@ sdk: org.freedesktop.Sdk
 command: minetest
 rename-appdata-file: net.minetest.minetest.metainfo.xml
 rename-desktop-file: net.minetest.minetest.desktop
-rename-icon: minetest
+rename-icon: luanti
 copy-icon: true
 finish-args:
   - --socket=x11
@@ -25,7 +25,7 @@ cleanup:
 modules:
   - shared-modules/luajit/luajit.json
 
-  - name: minetest
+  - name: luanti
     buildsystem: cmake-ninja
     config-opts:
       - -DENABLE_CURSES=0
@@ -33,8 +33,8 @@ modules:
     cleanup:
       - /share/minetest/games/devtest
     post-install:
-      - mv $FLATPAK_DEST/bin/minetest $FLATPAK_DEST/bin/minetest.bin
-      - install -Dm755 minetest.sh $FLATPAK_DEST/bin/minetest
+      - mv $FLATPAK_DEST/bin/luanti $FLATPAK_DEST/bin/luanti.bin
+      - install -Dm755 luanti.sh $FLATPAK_DEST/bin/luanti
     sources:
       - type: git
         url: https://github.com/minetest/minetest.git
@@ -46,7 +46,7 @@ modules:
 
         commit: 568f7a8e8fb457c7b7bcfd3211c7f3f0481ed2e7
       - type: script
-        dest-filename: minetest.sh
+        dest-filename: luanti.sh
         commands:
           - MINETEST_USER_PATH=$HOME/.var/app/net.minetest.Minetest/.minetest exec
-            minetest.bin "$@"
+            luanti.bin "$@"
