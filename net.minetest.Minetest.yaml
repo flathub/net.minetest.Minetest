@@ -38,13 +38,13 @@ modules:
     sources:
       - type: git
         url: https://github.com/minetest/minetest.git
-        tag: 5.10.0
+        tag: 5.11.0
         x-checker-data:
           type: git
           tag-pattern: ([\d.]+)$
           is-important: true
 
-        commit: 568f7a8e8fb457c7b7bcfd3211c7f3f0481ed2e7
+        commit: 0cb7735125c4d44026c874fd269669806d8d70d4
       - type: script
         dest-filename: luanti.sh
         commands:
