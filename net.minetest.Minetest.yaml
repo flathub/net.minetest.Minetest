@@ -4,7 +4,7 @@ runtime-version: '24.08'
 sdk: org.freedesktop.Sdk
 command: minetest
 rename-appdata-file: net.minetest.minetest.metainfo.xml
-rename-desktop-file: net.minetest.minetest.desktop
+rename-desktop-file: org.luanti.luanti.desktop
 rename-icon: luanti
 copy-icon: true
 finish-args:
